@@ -1,0 +1,27 @@
+version: '3.4'
+
+services:
+  applicationuser.api:
+    image: ${DOCKER_REGISTRY-}applicationuserapi
+    build:
+      context: .
+      dockerfile: ApplicationUser.Api/Dockerfile
+
+  identity.api:
+    image: ${DOCKER_REGISTRY-}identityapi
+    build:
+      context: .
+      dockerfile: Identity.Api/Dockerfile
+
+  shoppingcart-rabbitmq:
+    image: rabbitmq:3.9.13-management-alpine
+
+  shoppingcart-redis:
+    image: redis:7.0-rc1-alpine
+
+  shopping.apigateway:
+    image: ${DOCKER_REGISTRY-}shoppingapigateway
+    build:
+      context: .
+      dockerfile: Shopping.ApiGateway/Dockerfile
+
