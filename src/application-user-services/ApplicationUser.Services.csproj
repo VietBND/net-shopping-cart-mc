@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>application_user_services</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\application-user-infrastructures\ApplicationUser.Infrastructures.csproj" />
+    <ProjectReference Include="..\event-sourcing-infrastructures\EventSourcing.Infrastructures.csproj" />
+  </ItemGroup>
+
+</Project>
