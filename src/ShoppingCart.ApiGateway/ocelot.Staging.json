@@ -1,3 +1,31 @@
 {
-
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "identity-api",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/v1/identity/{everything}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "applicationuser-api",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/v1/applicationuser/{everything}",
+      "UpstreamHttpMethod": [ "Post", "Get", "Put", "Delete" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:5000"
+  }
 }

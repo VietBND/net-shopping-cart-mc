@@ -20,4 +20,9 @@
     </Reference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="CommandHandlers\" />
+    <Folder Include="DapperRepositories\" />
+  </ItemGroup>
+
 </Project>

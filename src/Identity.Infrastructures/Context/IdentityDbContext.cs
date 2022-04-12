@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Identity.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,10 @@ namespace Identity.Infrastructures.Context
     {
         public IdentityDbContext(DbContextOptions<IdentityDbContext> options) : base(options)
         {
-
         }
+
+        public virtual DbSet<AppUser> AppUsers { get; set; }
+        public virtual DbSet<ActionLog> ActionLogs { get; set; }
+        public virtual DbSet<RefreshTokenMappingUser> RefreshTokenMappingUsers { get; set; }
     }
 }
