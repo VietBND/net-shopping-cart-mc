@@ -24,7 +24,7 @@ namespace Identity.Infrastructures.DapperRepositories
 
         public async Task<RefreshTokenDto> GetByRefreshToken(string refreshToken)
         {
-            var builder = _dapperBuilder.Build<RefreshTokenMappingUser>();
+            var builder = _dapperBuilder.Build<RefreshTokenUserMapping>();
             builder
                 .Where("t1.Token = @refreshToken", new { refreshToken })
                 .Select("t1.Token")

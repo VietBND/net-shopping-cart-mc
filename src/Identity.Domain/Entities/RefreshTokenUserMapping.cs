@@ -7,7 +7,7 @@ using VietBND.Domain.Entities;
 
 namespace Identity.Domain.Entities
 {
-    public class RefreshTokenMappingUser : AuditedEntity<Guid>
+    public class RefreshTokenUserMapping : AuditedEntity<Guid>
     {
         public Guid UserId { get; set; }
         public string Token { get; set; }

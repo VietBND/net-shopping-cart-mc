@@ -17,6 +17,6 @@ namespace Identity.Infrastructures.Context
 
         public virtual DbSet<AppUser> AppUsers { get; set; }
         public virtual DbSet<ActionLog> ActionLogs { get; set; }
-        public virtual DbSet<RefreshTokenMappingUser> RefreshTokenMappingUsers { get; set; }
+        public virtual DbSet<RefreshTokenUserMapping> RefreshTokenMappingUsers { get; set; }
     }
 }

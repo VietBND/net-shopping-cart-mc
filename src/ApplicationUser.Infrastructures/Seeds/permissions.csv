@@ -1,0 +1,9 @@
+﻿Id,Key,Name,Description
+ecef48e2-afaa-11ec-b909-0242ac120002,USER:CREATE,Người dùng,Thêm mới
+f5aafa62-afaa-11ec-b909-0242ac120002,USER:READ,Người dùng,Xem 
+2a66987d-1a14-4761-a856-17fdfc478a69,USER:UPDATE,Người dùng,Sửa
+7335ae21-d946-4b47-97c0-e6f3b010ae00,USER:DELETE,Người dùng,Xóa
+c87e2e5b-5eeb-4296-935e-601d9a700b0a,ROLE:CREATE,Vai trò,Thêm mới
+48f6fbe9-1f44-464e-b35e-515d0091fb3b,ROLE:READ,Vai trò,Xem
+303ece61-8808-47a7-880a-d599a9ca926d,ROLE:UPDATE,Vai trò,Sửa
+cbaddaa9-b198-4199-81e2-3fe23747ae34,ROLE:DELETE,Vai trò,Xóa

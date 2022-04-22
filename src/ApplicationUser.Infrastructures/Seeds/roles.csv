@@ -1,0 +1,4 @@
+Id,Name,IsActive,IsAdmin,CreatedAt,TenantId,IsDeleted,UpdatedBy,UpdatedAt
+6254f01a-57ce-4f6a-a9e9-598e3e925d24,Administrator,true,true,20220321,NULL,false,NULL,NULL
+3961b19b-ab3f-490d-a09c-eee21f5738cc,Sales,true,false,20220321,NULL,false,NULL,NULL
+913e40de-1a93-4909-a881-ad501ad992e9,Manager,true,false,20220321,NULL,false,NULL,NULL

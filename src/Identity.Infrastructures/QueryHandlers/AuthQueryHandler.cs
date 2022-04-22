@@ -25,10 +25,10 @@ namespace Identity.Infrastructures.QueryHandlers
     {
         private readonly IUserDapperRepository _repository;
         private readonly IRefreshTokenRepository _refreshTokenRepository;
-        private readonly IRepository<RefreshTokenMappingUser, Guid> _refreshTokenCrudRepository;
+        private readonly IRepository<RefreshTokenUserMapping, Guid> _refreshTokenCrudRepository;
         private readonly IConfiguration _configuration;
         private readonly IHttpContextAccessor _httpContext;
-        public AuthQueryHandler(IUserDapperRepository repository, IConfiguration configuration, IHttpContextAccessor httpContext, IRepository<RefreshTokenMappingUser, Guid> refreshTokenCrudRepository, IRefreshTokenRepository refreshTokenRepository)
+        public AuthQueryHandler(IUserDapperRepository repository, IConfiguration configuration, IHttpContextAccessor httpContext, IRepository<RefreshTokenUserMapping, Guid> refreshTokenCrudRepository, IRefreshTokenRepository refreshTokenRepository)
         {
             _repository = repository;
             _configuration = configuration;
@@ -49,7 +49,7 @@ namespace Identity.Infrastructures.QueryHandlers
             }
             var refreshToken = generateRefreshToken(ipAddress());
             setTokenCookie(refreshToken.Token);
-            await _refreshTokenCrudRepository.InsertAsync(new RefreshTokenMappingUser()
+            await _refreshTokenCrudRepository.InsertAsync(new RefreshTokenUserMapping()
             {
                 UserId = user.Id,
                 Expires = DateTime.UtcNow.AddMinutes(15),
@@ -102,13 +102,13 @@ namespace Identity.Infrastructures.QueryHandlers
             return tokenHandler.WriteToken(token);
         }
 
-        private RefreshTokenMappingUser generateRefreshToken(string ipAddress)
+        private RefreshTokenUserMapping generateRefreshToken(string ipAddress)
         {
             using (var rngCryptoServiceProvider = new RSACryptoServiceProvider())
             {
                 var randomBytes = new byte[64];
                 rngCryptoServiceProvider.Encrypt(randomBytes,false);
-                return new RefreshTokenMappingUser
+                return new RefreshTokenUserMapping
                 {
                     Token = Convert.ToBase64String(randomBytes),
                     Expires = DateTime.UtcNow.AddDays(7),
@@ -127,6 +127,7 @@ namespace Identity.Infrastructures.QueryHandlers
             if (refreshToken.Expires < DateTime.UtcNow)
                 throw new UnauthorizeException("Unauthorize");
             var newRefreshToken = generateRefreshToken(ipAddress());
+            newRefreshToken.UserId = user.Id;
             await _refreshTokenCrudRepository.InsertAsync(newRefreshToken);
             var jwt = generateJwtBearer(user.Id,newRefreshToken.Token);
 

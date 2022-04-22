@@ -10,16 +10,24 @@
     <Reference Include="VietBND">
       <HintPath>..\framework-output\VietBND.dll</HintPath>
     </Reference>
+    <Reference Include="VietBND.Dapper">
+      <HintPath>..\framework-output\VietBND.Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="VietBND.MediatR">
+      <HintPath>..\framework-output\VietBND.MediatR.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\" />
-    <Folder Include="Entities\" />
     <Folder Include="Events\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MediatR" Version="10.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ShoppingCart.Common\ShoppingCart.Common.csproj" />
   </ItemGroup>
 
 </Project>

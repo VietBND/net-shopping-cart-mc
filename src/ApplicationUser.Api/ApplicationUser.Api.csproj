@@ -13,8 +13,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.2.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="Grpc.AspNetCore" Version="2.40.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.3" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.3.0" />
   </ItemGroup>
@@ -43,11 +50,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\ApplicationUser.Infrastructures\ApplicationUser.Infrastructures.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ApplicationUser.Infrastructures\ApplicationUser.Infrastructures.csproj" />
+    <Reference Include="VietBND">
+      <HintPath>..\framework-output\VietBND.dll</HintPath>
+    </Reference>
+    <Reference Include="VietBND.AspNetCore">
+      <HintPath>..\framework-output\VietBND.AspNetCore.dll</HintPath>
+    </Reference>
+    <Reference Include="VietBND.Dapper">
+      <HintPath>..\framework-output\VietBND.Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="VietBND.MediatR">
+      <HintPath>..\framework-output\VietBND.MediatR.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
